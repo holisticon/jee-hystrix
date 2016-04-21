@@ -1,0 +1,70 @@
+<?xml version="1.0" ?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://brokenservice.holisticon.de/stock/2016/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="StockService" targetNamespace="http://brokenservice.holisticon.de/stock/2016/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://brokenservice.holisticon.de/stock/2016/" elementFormDefault="unqualified" targetNamespace="http://brokenservice.holisticon.de/stock/2016/" version="1.0">
+
+  <xs:element name="getStock" type="tns:getStock"></xs:element>
+
+  <xs:element name="getStockResponse" type="tns:getStockResponse"></xs:element>
+
+  <xs:complexType name="getStock">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="stockRequest" type="tns:stockRequest"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="stockRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getStockResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="stockResponse" type="tns:stockResponse"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="stockResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="currency" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+      <xs:element name="value" type="xs:long"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getStockResponse">
+    <wsdl:part element="tns:getStockResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getStock">
+    <wsdl:part element="tns:getStock" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Stock">
+    <wsdl:operation name="getStock">
+      <wsdl:input message="tns:getStock" name="getStock">
+    </wsdl:input>
+      <wsdl:output message="tns:getStockResponse" name="getStockResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StockServiceSoapBinding" type="tns:Stock">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <wsdl:operation name="getStock">
+      <soap:operation soapAction="getStock" style="document"></soap:operation>
+      <wsdl:input name="getStock">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="getStockResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StockService">
+    <wsdl:port binding="tns:StockServiceSoapBinding" name="StockPort">
+      <soap:address location="http://localhost:8080/broken-service/StockService/Stock"></soap:address>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

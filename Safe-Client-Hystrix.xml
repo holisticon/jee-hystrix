@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="3ead3f34-c1ea-4f9d-ba6b-338a3dc64462" activeEnvironment="Default" name="JEE-Hystrix" resourceRoot="" soapui-version="5.2.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="27afb07e-8b44-4952-a41c-0ab6a6eafd59" wsaVersion="NONE" name="SafeStockClientServiceSoapBinding" type="wsdl" bindingName="{http://safeclient.holisticon.de/stock/2016/}SafeStockClientServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/safe-client/SafeStockClientService/SafeStockClient?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/safe-client/SafeStockClientService/SafeStockClient?wsdl"><con:part><con:url>http://localhost:8080/safe-client/SafeStockClientService/SafeStockClient?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="SafeStockClientService" targetNamespace="http://safeclient.holisticon.de/stock/2016/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://safeclient.holisticon.de/stock/2016/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://safeclient.holisticon.de/stock/2016/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getStock" type="tns:getStock"/>
+      <xs:element name="getStockResponse" type="tns:getStockResponse"/>
+      <xs:complexType name="getStock">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="getStockResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="stockResponse" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getStock">
+    <wsdl:part element="tns:getStock" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getStockResponse">
+    <wsdl:part element="tns:getStockResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SafeStockClient">
+    <wsdl:operation name="getStock">
+      <wsdl:input message="tns:getStock" name="getStock"></wsdl:input>
+      <wsdl:output message="tns:getStockResponse" name="getStockResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SafeStockClientServiceSoapBinding" type="tns:SafeStockClient">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getStock">
+      <soap:operation soapAction="getStock" style="document"/>
+      <wsdl:input name="getStock">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getStockResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SafeStockClientService">
+    <wsdl:port binding="tns:SafeStockClientServiceSoapBinding" name="SafeStockClientPort">
+      <soap:address location="http://localhost:8080/safe-client/SafeStockClientService/SafeStockClient"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/safe-client/SafeStockClientService/SafeStockClient</con:endpoint></con:endpoints><con:operation id="74f9d1ca-6f1a-4ee8-a93e-ce88d0eb21eb" isOneWay="false" action="getStock" name="getStock" bindingOperationName="getStock" type="Request-Response" outputName="getStockResponse" inputName="getStock" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c369e584-f9e7-4ff6-bd16-6a9f656dd869" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/safe-client/SafeStockClientService/SafeStockClient</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://safeclient.holisticon.de/stock/2016/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:getStock/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="getStock"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="0dc56ccf-b130-4fa6-a3a4-28b2910dd7c9" wsaVersion="NONE" name="BrokenStockClientServiceSoapBinding" type="wsdl" bindingName="{http://brokenclient.holisticon.de/stock/2016/}BrokenStockClientServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/safe-client/BrokenStockClientService/StockClient?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/safe-client/BrokenStockClientService/StockClient?wsdl"><con:part><con:url>http://localhost:8080/safe-client/BrokenStockClientService/StockClient?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="BrokenStockClientService" targetNamespace="http://brokenclient.holisticon.de/stock/2016/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://brokenclient.holisticon.de/stock/2016/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://brokenclient.holisticon.de/stock/2016/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getStock" type="tns:getStock"/>
+      <xs:element name="getStockResponse" type="tns:getStockResponse"/>
+      <xs:complexType name="getStock">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="getStockResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="stockResponse" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getStock">
+    <wsdl:part element="tns:getStock" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getStockResponse">
+    <wsdl:part element="tns:getStockResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="StockClient">
+    <wsdl:operation name="getStock">
+      <wsdl:input message="tns:getStock" name="getStock"></wsdl:input>
+      <wsdl:output message="tns:getStockResponse" name="getStockResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BrokenStockClientServiceSoapBinding" type="tns:StockClient">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getStock">
+      <soap:operation soapAction="getStock" style="document"/>
+      <wsdl:input name="getStock">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getStockResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BrokenStockClientService">
+    <wsdl:port binding="tns:BrokenStockClientServiceSoapBinding" name="BrokenStockClientPort">
+      <soap:address location="http://localhost:8080/safe-client/BrokenStockClientService/StockClient"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/safe-client/BrokenStockClientService/StockClient</con:endpoint></con:endpoints><con:operation id="a1356a3a-8ef5-4c3b-a8d3-3f2a57f8eacc" isOneWay="false" action="getStock" name="getStock" bindingOperationName="getStock" type="Request-Response" outputName="getStockResponse" inputName="getStock" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4c89d82a-1a96-41a1-860d-f8aee63dba89" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/safe-client/BrokenStockClientService/StockClient</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://brokenclient.holisticon.de/stock/2016/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:getStock/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="getStock"/></con:call></con:operation></con:interface><con:testSuite id="71da3d56-2ab9-4f14-b183-f56d274a7ab1" name="StockClient Test Suite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="06848e11-67fb-413f-8942-cb302bc0fb5f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Safe Client TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="57bb8a65-045c-46d1-845d-9561bace84ac" name="getStock"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SafeStockClientServiceSoapBinding</con:interface><con:operation>getStock</con:operation><con:request name="getStock" id="3910b47a-a15a-4b05-b869-8cd5ecc43ea7"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/safe-client/SafeStockClientService/SafeStockClient</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://safeclient.holisticon.de/stock/2016/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:getStock/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="getStock"/></con:request></con:config></con:testStep><con:loadTest id="3cc863f9-4280-43a0-84ac-031eca1248d8" name="Safe LoadTest"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>9</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>600</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:testCase id="9453e44f-3cff-460b-970b-c712ef2b121b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Broken Client TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="e75eda34-5b74-4547-bad5-64e846a68f5e" name="getStock"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BrokenStockClientServiceSoapBinding</con:interface><con:operation>getStock</con:operation><con:request name="getStock" id="fef6acab-341d-4c03-b990-f53132955d36"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/safe-client/BrokenStockClientService/StockClient</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://brokenclient.holisticon.de/stock/2016/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:getStock/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="getStock"/></con:request></con:config></con:testStep><con:loadTest id="6a9256c5-4683-417c-9592-2bff4848983d" name="Broken LoadTest"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>200</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>600</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type><con:config><testDelay>1000</testDelay><randomFactor>0.5</randomFactor></con:config></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

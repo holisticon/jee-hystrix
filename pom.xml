@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>de.holisticon</groupId>
+	<artifactId>holisticon-jee-hystrix</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>de.holisticon.maven</groupId>
+		<artifactId>holisticon-oss-parent</artifactId>
+		<version>2</version>
+		<relativePath />
+	</parent>
+
+	<organization>
+		<name>Holisticon AG</name>
+		<url>http://www.holisticon.de/</url>
+	</organization>
+
+	<modules>
+		<module>broken-service</module>
+		<module>safe-client</module>
+		<module>safe-client-as7</module>
+		<module>safe-client-wildfly8</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>de.holisticon</groupId>
+				<artifactId>safe-client</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+</project>
